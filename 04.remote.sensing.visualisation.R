@@ -56,7 +56,7 @@ clr <- colorRampPalette(c("darkred", "red", "pink")) (100)
 plot(b4, col=clr) #the red band is the 4th one in sentinel
 
 cln <- colorRampPalette(c("brown", "orange", "yellow")) (100)
-plot(b8, col=cln) #the yellow band is the number 8 in sentinel
+plot(b8, col=cln) #the near infrared band is the number 8 in sentinel
 
 # RGB space
 # stacksent: 
@@ -78,6 +78,8 @@ im.plotRGB(stacksent, r=3, g=2, b=4) #this permits to put the blue component on 
 #when we have a lot of variables and a number of correlation between them we should use the function pairs()
 
 pairs(stacksent)
+#values of reflectance changed to only integer values.
+#the first graph in the multiframe is representing the frequency of every value of reflectance
 
-#since this bands are all correlated with each other, we can build spectal indices.
+
 
