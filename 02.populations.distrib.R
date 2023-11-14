@@ -31,6 +31,7 @@ rana #our set
 
 rana[rana$Occurrence==1,] #single quadratic parenthesis since we are now dealing with points
 
+#selecting presences
 pres <- rana[rana$Occurrence==1,]
 pres
 pres$Occurrence
