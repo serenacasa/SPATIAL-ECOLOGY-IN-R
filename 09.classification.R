@@ -97,3 +97,27 @@ p2 <- ggplot(tab,aes(x=class, y=y2006, color=class)) + geom_bar(stat="identity",
 plot(p2) #or p2
 
 
+
+
+library(ggplot2)
+install.packages("patchwork")
+library(patchwork)
+
+# final output
+p1 <- ggplot(tab, aes(x=class, y=y1992, color=class)) + geom_bar(stat="identity", fill="white")
+p2 <- ggplot(tab, aes(x=class, y=y2006, color=class)) + geom_bar(stat="identity", fill="white")
+p1 + p2
+
+        #one plot (p1) related to the 1992 and the other related to the 2006 image. 
+        #Then to merge them together we have to use the function patchwork()
+    
+        #the problem now we have the problem of having two different scales in the two different images.
+        #to have the same scale in each image graph we have to use add the specification to each line --> +ylim(c(0,100))
+        #in this way the range in the y axis will be the same.
+
+# final output, RESCALED
+p1 <- ggplot(tab, aes(x=class, y=y1992, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100))
+p2 <- ggplot(tab, aes(x=class, y=y2006, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100))
+p1 + p2
+
+
