@@ -31,3 +31,32 @@ plot(sd3)
 viridisc <- colorRampPalette(viridis(7)) (255)
 viridis
 plot(sd3, col=viridisc)
+
+im.list()
+sent<- im.import("sentinel.png")
+
+im.plotRGB(sent, 1,2,3)
+im.plotRGB(sent, 2,1,3)
+
+#Exercise: calculate the variability in 7x7 moving window
+#focal
+sd7 <- focal(nir, matrix(1/49,7,7), fun=sd)
+plot(sd7, col=viridisc)
+
+
+#exercise 2: plot via par(mfrow()) the 3x3 and the 7x7 standard deviation
+
+par(mfrow=c(1,2))
+plot(sd3, col=viridisc)
+plot(sd7, col=viridisc)
+#when enlarging the moving window we will obtain more pixels (49 in the second case), in this case 
+#we can obtain more variability (increasing the variability). 
+#In the first case we only have 9 pixel per time (decreased variability)
+
+#original image plus the 7x7 sd
+im.plotRGB(sent, 2,1,3)
+plot(sd7, col=viridisc)
+
+#how to chose the layer to which apply the sd calculation
+#method to pass from the whole image to the layer we want => MULTIVARIATE ANALYSIS
+
