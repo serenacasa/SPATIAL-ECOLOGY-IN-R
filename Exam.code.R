@@ -131,8 +131,34 @@ y2023 <- c(57, 43)
 table1 <- data.frame(class, y2022, y2023)
 table1
 
-g2022 <- ggplot(table1, aes(x=class, y=y2022, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100))
-g2023 <- ggplot(table1, aes(x=class, y=y2023, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100))
+#to set the colors of the bars related to each class:
+color=(c("Bare soil"="orange3", "Vegetation"="green"))
+
+
+g2022 <- ggplot(table1, aes(x=class, y=y2022, fill=class, color=class)) +
+  geom_bar(stat="identity") +
+  scale_fill_manual(values=c("Bare soil" = "orange3", "Vegetation" = "green")) +
+  scale_color_manual(values=c("Bare soil" = "orange3", "Vegetation" = "green")) +
+  labs(title = "2022") +
+  guides(fill = guide_legend(override.aes = list(fill = c("Bare soil" = "orange3", "Vegetation" = "green")))) +
+  theme(legend.position = "right", 
+        legend.key = element_rect(fill = c("Bare soil" = "orange3", "Vegetation" = "green"), 
+                                  color = c("Bare soil" = "orange3", "Vegetation" = "green")))
+g2022
+
+
+g2023 <- ggplot(table1, aes(x=class, y=y2023, fill=class, color=class)) +
+  geom_bar(stat="identity") +
+  scale_fill_manual(values=c("Bare soil" = "orange3", "Vegetation" = "green")) +
+  scale_color_manual(values=c("Bare soil" = "orange3", "Vegetation" = "green")) +
+  labs(title = "2023") +
+  guides(fill = guide_legend(override.aes = list(fill = c("Bare soil" = "orange3", "Vegetation" = "green")))) +
+  theme(legend.position = "right", 
+        legend.key = element_rect(fill = c("Bare soil" = "orange3", "Vegetation" = "green"), 
+                                  color = c("Bare soil" = "orange3", "Vegetation" = "green")))
+g2023
+
+#then we combine the two graphs:
 g2022 + g2023
 dev.off()
 
