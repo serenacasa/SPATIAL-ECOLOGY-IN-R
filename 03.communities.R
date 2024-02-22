@@ -23,7 +23,7 @@ pldc2
 pldc1 + pldc2
 plot(ord) 
 
-# relation among species in time
+#### Relation among species in time ####
 library(overlap)
 
 data(kerinci)
@@ -36,7 +36,7 @@ tiger <- kerinci[kerinci$Sps=="tiger",]
 timetig <- tiger$timeRad
 densityPlot(timetig, rug=TRUE)
 
-# exercise: to select only the data on macaque individuals:
+# Exercise: to select only the data on macaque individuals:
 macaque <- kerinci[kerinci$Sps=="macaque",]
 head(macaque)
 
