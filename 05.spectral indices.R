@@ -1,17 +1,21 @@
-#since this bands are all correlated with each other, we can build SPECTRAL INDICES.
+##### SPECTRAL INDICES ####
 
-#taking into consideration the reflectance of red and NIF bands from a tree. We are going to compare the NIF 
-#and the red value (that is supposed to be lower)
+                                                                      #since this bands are all correlated with each other, 
+                                                                      ##we can build SPECTRAL INDICES.
 
-
+                                                                      #taking into consideration the reflectance of red 
+                                                                      ##and NIF bands from a tree. We are going to compare the NIF 
+                                                                      ##and the red value (that is supposed to be lower)
 library(imageRy)
 library(terra)
 
 im.list()
-im.import("matogrosso_l5_1992219_lrg.jpg") #this gives directly the plot of the Mato 
-#Grosso tree distribution in 1992. the bands here are three. the fisrt one is teh NIF, 
-#the second is the red and the third the green.
-#bands: 1=NIR, 2=RED, 3=GREEN
+im.import("matogrosso_l5_1992219_lrg.jpg")                            #this gives directly the plot of the Mato Grosso 
+                                                                      ##tree distribution in 1992. 
+                                                                      ##The bands here are three. 
+                                                                      ###The fisrt one is teh NIF, 
+                                                                      ###the second is the red and the third the green.
+                                                                      ##bands: 1=NIR, 2=RED, 3=GREEN
 
 #then we must assign a name to this plot
 m1992 <- im.import("matogrosso_l5_1992219_lrg.jpg")
