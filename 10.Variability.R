@@ -55,10 +55,10 @@ plot(sd7, col=viridisc)
                                                                   ## in this way, we can obtain more variability (increasing the variability). 
                                                                   # In the first case we only have 9 pixel per time (decreased variability)
 
-                                                                  #original image plus the 7x7 sd
+                                                                  # original image plus the 7x7 sd
 im.plotRGB(sent, 2,1,3)
 plot(sd7, col=viridisc)
 
-                                                                  #how to chose the layer to which apply the sd calculation
-                                                                  #method to pass from the whole image to the layer we want => MULTIVARIATE ANALYSIS
+                                                                  # how to chose the layer to which apply the sd calculation
+                                                                  # method to pass from the whole image to the layer we want => MULTIVARIATE ANALYSIS
 
