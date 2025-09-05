@@ -117,6 +117,6 @@ plot(ndvi2006, col=clvir)
 dev.off()
 
 #### speeding up calculation #####
-                                                                      # there is a funtion from the imageRy package that can compute directly the NDVI
+                                                                      # there is a function from the imageRy package that can compute the NDVI directly
 ndvi2006a <- im.ndvi(m2006, 1, 2)
 plot(ndvi2006a, col=cl)
