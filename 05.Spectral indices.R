@@ -1,6 +1,6 @@
 ##### SPECTRAL INDICES ####
 
-                                                                      # since this bands are all correlated with each other, 
+                                                                      # since these bands are all correlated with each other, 
                                                                       ## we can build SPECTRAL INDICES.
 
                                                                       # taking into consideration the reflectance of red 
