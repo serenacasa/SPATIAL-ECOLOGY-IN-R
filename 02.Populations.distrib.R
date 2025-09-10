@@ -51,7 +51,7 @@ plot(pres)
 # this plot shows a lower amount of points since it shows only the presences
 
 
-### exercise ###
+#### Exercise ####
 # select absence and call them 'abse'
 abse <- rana[rana$Occurrence == 0, ]
 abse
@@ -129,7 +129,7 @@ vegemap <- rast(vege)
 plot(vegemap)
 points(pres, cex = .5)
 
-### PRECIPITATION PREDICTOR ###
+#### PRECIPITATION PREDICTOR ####
 
 prec <- system.file("external/precipitation.asc", package="sdm")
 prec
