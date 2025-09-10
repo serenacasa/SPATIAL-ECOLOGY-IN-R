@@ -78,7 +78,7 @@ elev <- bei.extra$elev
 plot(elev)
 
 
-### Multiframes ###
+#### Multiframes ####
 # In constructing MULTIFRAMES (mf), we will have to specify the number of rows and columns we want    
 
 # first create the multiframe with this command par(mfrow=)
