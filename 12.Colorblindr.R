@@ -13,7 +13,7 @@ iris
 
 
 # build a ggplot with the iris aesthetics
-fig <-ggplot(iris, aes(Sepal.Length, fill = Species)) + geom_density(alpha = 0.7)
+fig <- ggplot(iris, aes(Sepal.Length, fill = Species)) + geom_density(alpha = 0.7)
 fig
 
 # color vision deficiency
