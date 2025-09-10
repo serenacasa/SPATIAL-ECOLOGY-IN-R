@@ -6,7 +6,7 @@ library(terra)
 # then we have to let R access our image. 
 # We have to explain to R the directory to find the image in our computer, 
 # so we have to set the working directory depending on our path:
-  # For Windows users, we have to change the slashes since usually it is written with the back slash, and R works with the forward slash
+# For Windows users, we have to change the slashes since usually it is written with the back slash, and R works with the forward slash
 
 setwd("C:/Users/seren/Desktop/SPATIAL ECOLOGY IN R")    
 
