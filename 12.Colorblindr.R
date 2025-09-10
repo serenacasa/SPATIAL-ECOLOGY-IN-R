@@ -1,4 +1,4 @@
-# simulating colour blind vision
+#### Simulating colour blind vision ####
 
 library(devtools)
 devtools::install_github("clauswilke/colorblindr")
