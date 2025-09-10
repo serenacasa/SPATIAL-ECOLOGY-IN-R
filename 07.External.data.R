@@ -4,14 +4,14 @@ library(terra)
 
 # we downloaded the image onto our computer from the Earth Observatory page
 # then we have to let R access our image. 
-# We have to explain to R the directory to find the image in our computer, 
+# We have to explain to R the directory to find the image on our computer, 
 # so we have to set the working directory depending on our path:
-# For Windows users, we have to change the slashes since usually it is written with the back slash, and R works with the forward slash
+# For Windows users, we have to change the slashes since usually it is written with the backslash, and R works with the forward slash
 
 setwd("C:/Users/seren/Desktop/SPATIAL ECOLOGY IN R")    
 
 # "setwd" = SET WORKING DIRECTORY
-# this function to direct R in the right location were we stored our image
+# this function directs R to the right location where we stored our image
 
 naja <- rast("najafiraq_etm_2003140_lrg.jpg")         
 
@@ -37,7 +37,7 @@ plotRGB(najaaug, r = 1, g = 2, b = 3)
 
 
 #### MULTITEMPORAL CHANGE DETECTION ####                                                         
-# this is a way to detect the changes between the two images
+# This is a way to detect the changes between the two images
 
 najadif = naja[[1]] - najaaug[[1]] 
 cl <- colorRampPalette(c("brown", "grey", "orange")) (100)
@@ -79,7 +79,7 @@ dev.off()
 plot(qcapdif, col = clcap)
 
 
-#### Exercise with The Mato Grosso image ####
+#### Exercise with the Mato Grosso image ####
 # It can be downloaded directly from EO-NASA site.
 
 mato <- rast("matogrosso_l5_1992219_lrg.jpg")
