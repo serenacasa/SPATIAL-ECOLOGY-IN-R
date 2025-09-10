@@ -2,15 +2,19 @@
 
 library(devtools)
 devtools::install_github("clauswilke/colorblindr")
-                                                              #then we can recall the package from the library function
+      
+
+# then we can recall the package from the library function
 library(colorblindr)
-library(ggplot2)                                              #a library to build additional graphics
+library(ggplot2)                                              
+# a library to build additional graphics
 
 iris
-                                                              #build a ggplot with the iris aestethics
-fig <-ggplot(iris, aes(Sepal.Length, fill= Species)) + geom_density(alpha=0.7)
+
+
+# build a ggplot with the iris aesthetics
+fig <-ggplot(iris, aes(Sepal.Length, fill = Species)) + geom_density(alpha = 0.7)
 fig
-                                                              #color vision deficiency
+
+# color vision deficiency
 cvd_grid(fig)
-
-
