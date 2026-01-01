@@ -5,7 +5,7 @@ library(ncdf4)
 # https://land.copernicus.vgt.vito.be/PDF/portal/Application.html the site. 
 # There are four main variables: VEGETATION, ENERGY, WATER CYCLE, AND CRYOSPHERE
 
-### VEGETATION:
+# VEGETATION:
 # FAPAR -> fraction of absorbed photosynthetically active radiation. 
          # Related to the red band (used by plants for photosynthesis)
 # NDVI  -> Normalized difference vegetation index
@@ -19,21 +19,21 @@ library(ncdf4)
 # soil water index -> is the relative water content of the top few centimeters of soil.
 
 
-### ENERGY:
+# ENERGY:
 # top of canopy reflectance -> the spectral reflectance by the fraction
 ## at the top of vegetation, soil, houses (or whatever)
 # surface albedo 
 # land surface temperature -> the radiative skin surface temperature of land
 
 
-### WATER CYCLE:
+# WATER CYCLE:
 # water temperatures of lakes LSWT 
 # lake water quality -> monitoring water quality in lakes and reservoirs is key in maintaining safe water ...
 # estimate of water bodies present in the whole planet
 # water level
 
 
-### CRYOSPHERE:
+# CRYOSPHERE:
 # Snow cover -> estimate of the amount of snow in a certain area
 # lake ice extent
 # snow water equivalence -> passage from solid (snow) to liquid (water) phase
