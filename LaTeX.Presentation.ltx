@@ -1,0 +1,126 @@
+\documentclass{beamer}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{listings}
+\usetheme{Frankfurt}
+\usecolortheme{dolphin}
+
+\title{My first presentation in LaTeX}
+\author{serena.casagrande}
+\date{14 December 2023}
+
+\begin{document}
+
+\maketitle
+
+\AtBeginSection[] % Do nothing for \section*
+{
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents[currentsection]
+\end{frame}
+}
+
+\section{Introduction}
+
+\begin{frame}{my first slide in latex}
+This is my first text in LaTeX presentations
+\end{frame}
+
+
+\begin{frame}{Items in latex beamer}
+    The main components of spatial ecology course were:
+    \begin{itemize}
+        \item population ecology
+        \item community ecology
+        \item ecosystems
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Items in latex beamer}
+    The main components of spatial ecology course were:
+    \begin{itemize}
+        \item population ecology
+        \item \pause community ecology
+        \item \pause ecosystems
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{putting a figure}
+\centering
+    \includegraphics[width=0.5 \textwidth]{andromeda.jpeg}
+\end{frame}
+
+\begin{frame}{putting a figure}
+\centering
+    \includegraphics[width=0.4 \textwidth]{andromeda.jpeg}
+    \includegraphics[width=0.4 \textwidth]{andromeda.jpeg}
+\end{frame}
+
+\begin{frame}{putting a figure}
+\centering
+    \includegraphics[width=0.4 \textwidth]{andromeda.jpeg}
+    \includegraphics[width=0.4 \textwidth]{andromeda.jpeg}\\
+    \includegraphics[width=0.4 \textwidth]{andromeda.jpeg}
+    \includegraphics[width=0.4 \textwidth]{andromeda.jpeg}\\
+
+\end{frame}
+
+
+\section{Approach used}
+
+\begin{frame}{Adding a formula}
+    The formula used in this study was based on:\\
+    \begin{equation}
+        H= - \sum_{i=1}^N p_i\times \log(p_i)
+    \end{equation}
+    where:\\
+    $i$ = single class;
+    $p_i$ = proportion of the $i_{th}$ class
+\end{frame}
+
+\begin{frame}{adding code}
+    The functions used in this study were based on the imageRy package and look like:\\
+    \lstinputlisting[language=R]
+    {code.R}
+
+\end{frame}
+
+\begin{frame}{adding code as a figure}
+    \includegraphics[width=\textwidth]{code.png}
+\end{frame}
+\begin{frame}{text plus figure}
+    \centering
+    The final result achieved was represented in the following figure \\
+    \smallskip
+    \bigskip
+    \includegraphics[width=0.6 \textwidth]{andromeda.jpeg}
+\end{frame}
+
+\begin{frame}{building columns in beamer}
+    \begin{columns}
+    \column{0.5\textwidth}
+    \centering
+    text here 
+    \column{0.5\textwidth}
+    \centering
+    text here
+    \end{columns}
+\end{frame}
+
+\begin{frame}{building columns in beamer}
+    \begin{columns}
+    \column{0.5\textwidth}
+    \centering
+    text here 
+    \column{0.5\textwidth}
+    \centering
+    %text here
+    \includegraphics[width=.8\textwidth]{andromeda.jpeg}
+    \end{columns}
+\end{frame}
+
+
+
+
+\end{document}
