@@ -1,0 +1,87 @@
+\documentclass [12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{natbib}
+\renewcommand{\familydefault}{\sfdefault}
+
+\title{\Huge{LaTeX paper - SPATIAL ECOLOGY IN R '23}}
+\author{serena.casagrande}
+\date{12 December 2023}
+%\date{ }
+
+\begin{document}
+
+\tableofcontents
+
+\maketitle
+
+\begin{abstract}
+    R is a programming language for statistical computing and graphics supported by the R Core Team and the R Foundation for Statistical Computing. Created by statisticians Ross Ihaka and Robert Gentleman, R is used among data miners, bioinformaticians and statisticians for data analysis and developing statistical software.[7] The core R language is augmented by a large number of extension packages containing reusable code and documentation.
+\end{abstract}
+
+\section{Introduction}
+\label{secIntro}
+R is a programming language for statistical computing and graphics supported by the R Core Team and the R Foundation for Statistical Computing. Created by statisticians Ross Ihaka and Robert Gentleman, R is used among data miners, bioinformaticians and statisticians for data analysis and developing statistical software.[7] The core R language is augmented by a large number of extension packages containing reusable code and documentation.
+%to eliminate the indentation we can use \noindent at the start of the paragraph.
+
+\smallskip
+R is a programming language for statistical computing and graphics supported by the R Core Team and the R Foundation for Statistical Computing. Created by statisticians Ross Ihaka and Robert Gentleman, R is used among data miners, bioinformaticians and statisticians for data analysis and developing statistical software.[7] The core R language is augmented by a large number of extension packages containing reusable code and documentation.
+
+\bigskip
+R is a programming language for statistical computing and graphics supported by the R Core Team and the R Foundation for Statistical Computing. Created by statisticians Ross Ihaka and Robert Gentleman, R is used among data miners, bioinformaticians and statisticians for data analysis and developing statistical software.[7] The core R language is augmented by a large number of extension packages containing reusable code and documentation.
+
+%to increase the font, we can code with a quadratic parenthesis that in LaTeX is used for something structural 
+
+\section{Methods}
+for this thesis, I made use of the following formula:
+\begin{equation}
+    a = b+ c
+    \label{eqSum}
+\end{equation}
+\begin{equation}
+    F=\sqrt[3]{G\frac{m_1\times m_2}{d^2}}
+    \label{eqNewton}
+\end{equation}
+starting from equation \ref{eqSum}
+as we seen in Equation \ref{eqNewton}, blablabla
+
+as we have seen in Section \ref{secIntro}
+
+\begin{figure}
+\centering
+\includegraphics[width =\textwidth]{andromeda.jpeg}
+\caption{racket}
+\label{racket}
+\end{figure}
+
+\section{Results}
+
+
+\section{Discussion}
+let's cite in this section
+
+The main achievements of this thesis can be summarized as follows:
+\begin{itemize}
+    \item Graphical representation of species distributions
+    \item Statistical analysis of uncertainty
+    \item Literature review on the theme
+\end{itemize}
+
+We might also make use of numbers:
+\begin{enumerate}
+    \item Graphical representation of species distributions
+    \item Statistical analysis of uncertainty
+    \item Literature review on the theme
+\end{enumerate}
+
+
+
+\begin{thebibliography}{999}
+% The citation that will appear in the text has to be placed between squared parentheses
+% The backslash has to be placed before the & since it could otherwise be seen as a command. in this way \& it is protected.
+\bibitem[Anderson, K., \& Gaston, K. J. (2013).]{Anderson2013} 
+Anderson, K., \& Gaston, K. J. (2013). Lightweight unmanned aerial vehicles will revolutionize spatial ecology. Frontiers in Ecology and the Environment, 11(3), 138-146.
+
+\end{thebibliography}
+
+
+\end{document}
