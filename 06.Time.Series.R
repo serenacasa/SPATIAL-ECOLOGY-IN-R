@@ -74,7 +74,7 @@ stackg <- c(g2000, g2005, g2010, g2015)
 plot(stackg, col = clg)
 
 
-###exercise: make the difference between the g2000 and the g2015:
+# Exercise: make the difference between the g2000 and the g2015:
 difG = g2000 - g2015
 difG = stackg[[1]] - stackg[[4]]                          
 # This is the second method to do the difference, taking the first element of the stackg and its fourth element
