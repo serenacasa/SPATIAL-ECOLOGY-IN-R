@@ -48,7 +48,7 @@ sd7 <- focal(nir, matrix(1/49, 7, 7), fun = sd)
 plot(sd7, col = viridisc)
 
 
-### Exercise 2: plot via par(mfrow()) the 3x3 and the 7x7 standard deviation ####
+#### Exercise 2: plot via par(mfrow()) the 3x3 and the 7x7 standard deviation ####
 
 par(mfrow = c(1, 2))
 plot(sd3, col = viridisc)
