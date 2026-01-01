@@ -7,7 +7,7 @@
 # These pixels are called TRAINING SITES, something that can explain to the software which clusters (or classes) are present.
 # If we want to classify a pixel, without knowing its class, we must use the reflectance of the pixel
 # and use the SMALLEST DISTANCE FROM THE NEAREST CLASS, to estimate to which class the pixel is most probable to be part of.
-## This way, we can classify every pixel in the image by class.
+# This way, we can classify every pixel in the image by class.
 
 # classifying satellite images performed with the function im.classify()
 
