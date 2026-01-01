@@ -23,8 +23,7 @@ naja <- rast("najafiraq_etm_2003140_lrg.jpg")
 plotRGB(naja, r = 1, g = 2, b = 3)
 
 
-# EXERCISE
-# after we downloaded the second image from the same site, we import it into R
+# Exercise: after we downloaded the second image from the same site, we import it into R
 najaaug <- rast("najafiraq_oli_2023219_lrg.jpg")
 
 plotRGB(najaaug, r = 1, g = 2, b = 3)                          
