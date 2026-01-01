@@ -1,4 +1,4 @@
-### Population ecology
+#### Population ecology ####
 
 # the package spatstat is needed for point pattern analysis
 
