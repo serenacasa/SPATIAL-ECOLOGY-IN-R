@@ -5,6 +5,7 @@ date: "2024-01-08"
 output: html_document
 ---
 
+
 # RMarkDown file!
 
 ```{r, eval=T}
@@ -29,21 +30,22 @@ im.plotRGB(mato2006, 2, 1, 3)
 
 Here you can add some text if you want!
 
-In this case you attain a result: 
+In this case, you attain a result: 
 ```{r, eval=T}
 2 + 3
 ```
 
-In this case you do not:
+
+In this case, you do not:
 ```{r, eval=F}
 2 + 3
 ```
-Lets import the matogross area image
+Let's import the matogross area image
 ```{r, eval=T}
 nato1992 <- im.importa("matogrosso_15_1992219_lrg.jpg")
 ```
 
-Plotting several images alltogether
+Plotting several images together
 ```{r, eval=T}
 par(mfrow=c(2,2))
 im.importa("matogrosso_15_1992219_lrg.jpg")
