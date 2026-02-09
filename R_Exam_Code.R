@@ -171,9 +171,10 @@ dates <- c("Jul 2018","Nov 2018","Dec 2018","Jul 2019",
 temp_line_t <- function() {
   par(mar = c(6, 4, 3, 1))
   plot(1:8, mean_ndvi, type = "b", pch = 16, lwd = 2,
-       col = viridis(10)[8], xaxt = "n", yaxt = "n",
-       xlab = "Dates", 
-       ylab = "Mean NDVI", ylim = c(0.15, 0.5),
+       col = viridis(10)[8], 
+       xaxt = "n", yaxt = "n",
+       xlab = "Dates", ylab = "Mean NDVI", 
+       ylim = c(0.15, 0.5),
        main = "NDVI Recovery Timeline - Camp Fire (2018-2025)", 
        cex.main = 0.95)
   axis(1, at = 1:8, labels = dates, las = 2, cex.axis = 0.65)
@@ -362,5 +363,6 @@ sd_summary <- data.frame(Window = c("3x3 (30m)", "5x5 (50m)", "7x7 (70m)"),
 )
 
 write.csv(sd_summary, "processed_data/Spatial_variability_Stats.csv", row.names = FALSE)
+
 
 
