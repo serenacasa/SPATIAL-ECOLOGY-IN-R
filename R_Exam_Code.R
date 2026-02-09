@@ -1,6 +1,5 @@
 # ===== CAMP FIRE REFORESTATION ANALYSIS - PARADISE, CALIFORNIA =====
-# Remote Sensing Project using Sentinel-2 data to analyze the reforestation after the Camp Fire of 
-# November 8, 2018.
+# Remote Sensing Project using Sentinel-2 data to analyze the reforestation after the Camp Fire of November 8, 2018.
 
 #### ----- LIBRARIES -----
 library(terra)      # Spatial data analysis package
@@ -363,4 +362,5 @@ sd_summary <- data.frame(Window = c("3x3 (30m)", "5x5 (50m)", "7x7 (70m)"),
 )
 
 write.csv(sd_summary, "processed_data/Spatial_variability_Stats.csv", row.names = FALSE)
+
 
