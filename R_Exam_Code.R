@@ -86,11 +86,14 @@ july.2025.10m <- merge_and_crop(
 # RGB visualization (B04-B03-B02) of July 2018(pre-fire), Dec 2018(post-), and July 2025(current) 
 true_color_plot <- function() {
   par(mfrow = c(1, 3), mar = c(1, 1, 3, 1))
-  plotRGB(july.2018.10m, r = 3, g = 2, b = 1, stretch = "lin", main = "Pre-fire RGB\n(July 2018)")
+  plotRGB(july.2018.10m, r = 3, g = 2, b = 1, 
+          stretch = "lin", main = "Pre-fire RGB\n(July 2018)")
   plot(fire_perimeter.utm, add = TRUE, border = "red", lwd = 1.5)
   
-  plotRGB(dec.2018.10m, r = 3, g = 2, b = 1, stretch = "lin", main = "Post-fire RGB\n(Dec 2018)")
-  plotRGB(july.2025.10m, r = 3, g = 2, b = 1, stretch = "lin", main = "Current RGB\n(July 2025)")
+  plotRGB(dec.2018.10m, r = 3, g = 2, b = 1, 
+          stretch = "lin", main = "Post-fire RGB\n(Dec 2018)")
+  plotRGB(july.2025.10m, r = 3, g = 2, b = 1, 
+          stretch = "lin", main = "Current RGB\n(July 2025)")
 }
 
 png("Images/True_Color_Composite.png", width = 3200, height = 1400, res = 300)
@@ -135,8 +138,8 @@ mean_dNDVI <- round(global(dNDVI.18, mean, na.rm = TRUE)[[1]], 3)
 mean_dNDVI
 
 
-##### Camp Fire impact Visualization -----
-# Nov 2018 and Dec 2018 NDVIs are plotted with the dNDVI. The palette is range-limited 
+##### Camp Fire Impact Visualization -----
+# Nov 2018 and Dec 2018 NDVIs are plotted with the dNDVI. The palette is range-limited for detail enhancement
 ndvi_col <- viridis(255, begin = 0.05, end = 0.95)
 fire.col <- colorRampPalette(c("royalblue4", "steelblue3", "lightblue", "lightyellow", 
                                "lightgoldenrod1", "coral", "red4"))(255)
@@ -172,13 +175,15 @@ temp_line_t <- function() {
        col = viridis(10)[8], xaxt = "n", yaxt = "n",
        xlab = "Dates", 
        ylab = "Mean NDVI", ylim = c(0.15, 0.5),
-       main = "NDVI Recovery Timeline - Camp Fire (2018-2025)", cex.main = 0.95)
+       main = "NDVI Recovery Timeline - Camp Fire (2018-2025)", 
+       cex.main = 0.95)
   axis(1, at = 1:8, labels = dates, las = 2, cex.axis = 0.65)
   axis(2, las = 1, cex.axis = 0.7)
   abline(v = 2.3, lty = 2, lwd = 1.5, col = "black")
   text(2.5, max(mean_ndvi), "Camp Fire\nNov 8, 2018", 
        adj = 0, font = 2, cex = 0.8)
-  text(1:8, mean_ndvi, labels = round(mean_ndvi, 3), pos = 3, cex = 0.7)
+  text(1:8, mean_ndvi, labels = round(mean_ndvi, 3), 
+       pos = 3, cex = 0.7)
 }
 
 png("Images/Recovery_trajectory_line.png", width = 2400, height = 1800, res = 300)
@@ -190,16 +195,19 @@ dev.off()
 # July NDVI maps as time series to visualize spatial recovery patterns
 ndvi_maps <- list(ndvi.july.2018, ndvi.july.2019, ndvi.july.2020, 
                   ndvi.july.2022, ndvi.july.2024, ndvi.july.2025)
+
 titles <- c("Jul 2018 (- 4 mo)", "Jul 2019 (+ 8 mo)", "Jul 2020 (+ 1.5 yr)", 
             "Jul 2022 (+ 3.5 yr)", "Jul 2024 (+ 5.5 yr)", "Jul 2025 (+ 6.5 yr)")
 
 temp.rec.maps <- function(){
   par(mfrow = c(2, 3), mar = c(1, 1, 3, 0), oma = c(0, 0, 0, 8))
+  
   for (i in seq_along(ndvi_maps)) {
     plot(ndvi_maps[[i]], main = titles[i], col = viridis(255), 
          axes = FALSE, range = c(-1, 1), legend = FALSE)
     plot(fire_perimeter.utm, add = TRUE, border = "black", lwd = 1.5)
   }
+  
   par(fig = c(0.98, 1.00, 0.3, 0.7), new = TRUE, mar = c(0, 0, 0, 0))
   image.plot(legend.only = TRUE, zlim = c(-1, 1), 
              col = viridis(255), legend.width = 15,
@@ -219,7 +227,8 @@ dev.off()
 total_recovery <- ndvi.july.2025 - ndvi.july.2019
 
 # Categories thresholds are based on quantile distribution
-dNDVI_q <- global(dNDVI.18, quantile, probs = c(0.25, 0.5, 0.75, 0.9, 0.95), na.rm = TRUE)
+dNDVI_q <- global(dNDVI.18, quantile, probs = c(0.25, 0.5, 0.75, 0.9, 0.95), 
+                  na.rm = TRUE)
 recovery_q <- global(total_recovery, quantile, probs = c(0.25, 0.5, 0.75, 0.9, 0.95), 
                      na.rm = TRUE)
 
@@ -229,8 +238,8 @@ severity_classes <- classify(dNDVI.18,
                                -Inf, 0,    1,
                                0,    0.15, 2,
                                0.15, 0.35, 3,
-                               0.35, Inf,  4
-                             ), ncol = 3, byrow = TRUE))
+                               0.35, Inf,  4), 
+                                          ncol = 3, byrow = TRUE))
 
 # Recovery classes: No/Negative(<0), Low(0 - 0.1), Moderate(0.1 - 0.25), High(>0.25)
 recovery_classes <- classify(total_recovery,
@@ -238,8 +247,8 @@ recovery_classes <- classify(total_recovery,
                                -Inf, 0,    1,
                                0,    0.1,  2,
                                0.1,  0.25, 3,
-                               0.25, Inf,  4
-                             ), ncol = 3, byrow = TRUE))
+                               0.25, Inf,  4), 
+                                          ncol = 3, byrow = TRUE))
 
 severity_labels <- c("Unburned", "Low", "Moderate", "High")
 recovery_labels <- c("No/Negative", "Low", "Moderate", "High")
@@ -263,7 +272,7 @@ write.csv(pivot_table_pct, "processed_data/Severity_Recovery_table.csv")
 
 
 ##### Severity x Recovery visualization -----
-# A grouped barplot and a spatial map to visualize the Severity x Recovery relationship.
+# A grouped barplot and a spatial map were used to visualize the Severity x Recovery relationship.
 # The two use the same palette, an inverted "mako" palette, to distinguish categories easily
 sev_rec_col <- viridis(4, option = "mako", direction = -1)
 
@@ -276,11 +285,14 @@ severity_recovery <- function() {
   rownames(plot_data) <- recovery_labels
   
   bp <- barplot(plot_data, beside = TRUE, col = sev_rec_col, border = "gray30", 
-                ylab = "Area (%)", xlab = "Burn Severity", ylim = c(0, 65), las = 1, 
+                ylab = "Area (%)", xlab = "Burn Severity", 
+                ylim = c(0, 65), las = 1, 
                 cex.names = 0.7, cex.axis = 0.8, cex.lab = 0.9)
   
-  legend("topright", legend = recovery_labels, fill = sev_rec_col, 
-         border = "gray30", bty = "n", cex = 0.7, title = "Recovery Level")
+  legend("topright", legend = recovery_labels, 
+         fill = sev_rec_col, border = "gray30", 
+         bty = "n", cex = 0.7, 
+         title = "Recovery Level")
   title(main = "Recovery by Severity Classes", cex.main = 0.95)
   
   par(mar = c(2, 0, 3, 5))
@@ -307,7 +319,7 @@ sd5_recovery <- focal(total_recovery, matrix(1/25, 5, 5), fun = sd)
 sd7_recovery <- focal(total_recovery, matrix(1/49, 7, 7), fun = sd)
 
 ##### Spatial variability visualization -----
-# For Total NDVI recovery the viridis palette was used. For the Focal SD panels the palette 
+# For Total NDVI recovery, the viridis palette was used. For the Focal SD panels, the palette 
 # used is the cividis inverted, using a common SD range for comparability and more details
 sd_col <- viridis(255, option = "cividis", direction = -1)
 
@@ -315,7 +327,8 @@ sd_variability <- function() {
   par(mfrow = c(2, 2), mar = c(1, 1, 3, 6), oma = c(0, 0, 3, 0))
   
   plot(total_recovery, main = "Total Recovery (Jul 2019 - Jul 2025)",
-       col = viridis(255), range = c(-0.2, 0.5), axes = FALSE, cex.main = 1)
+       col = viridis(255), range = c(-0.2, 0.5), 
+       axes = FALSE, cex.main = 1)
   plot(fire_perimeter.utm, add = TRUE, border = "black", lwd = 1.5)
   
   sd_q99 <- max(
@@ -350,3 +363,4 @@ sd_summary <- data.frame(Window = c("3x3 (30m)", "5x5 (50m)", "7x7 (70m)"),
 )
 
 write.csv(sd_summary, "processed_data/Spatial_variability_Stats.csv", row.names = FALSE)
+
