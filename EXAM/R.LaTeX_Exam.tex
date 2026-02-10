@@ -1,0 +1,373 @@
+\documentclass{beamer}
+\usepackage{graphicx} 
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{caption}
+
+\usetheme{CambridgeUS}
+\usecolortheme{spruce}
+
+\title{Camp Fire Reforestation Analysis}
+\subtitle{Paradise, California (2018–2025)}
+
+\author{Serena Casagrande} 
+\institute{M. n°0001138070}
+\date{February 11, 2026}
+
+\titlegraphic{
+\includegraphics[width = 0.3\textwidth]{Images/Camp_Fire_2018.jpg}}
+
+\begin{document}
+
+\maketitle
+
+%-----------------------------------------------------------
+\section{Introduction}
+
+\begin{frame}{Camp Fire — November 8, 2018}
+The remote sensing project "Camp Fire Reforestation Analysis" employed Sentinel-2 multitemporal imagery to analyze vegetation loss and recovery following the Camp Fire (November 8, 2018) in Paradise (Butte County), described as the deadliest and most destructive wildfire in California history.
+
+\bigskip
+
+From November 8, 2018, over 17 days, the Camp Fire burned more than 153,000 acres (619.2 km²), killed 85 people, and destroyed over 18,000 structures in Butte County, California, devastating the town of Paradise.
+\end{frame}
+
+\begin{frame}{Aim of the Project}
+This analysis investigated the post-fire vegetation recovery (in the form of NDVI changes) in the Camp Fire area, from July 2018 (pre-fire condition) until July 2025 (6.5 years post-fire), the latest peak growing season available (determining the current condition). 
+\bigskip
+
+The aims were to study:
+\begin{enumerate}
+    \item \textbf{The Fire Impact} \\
+    Quantify immediate vegetation loss from the fire (December 2018).\\
+    
+    \item \textbf{Recovery Trajectory} \\
+    Map post-fire NDVI recovery over 6.5 years.\\
+ 
+    \item \textbf{Severity × Recovery Relationship} \\
+     Assess the relationship between burn severity and vegetation regrowth.\\
+ 
+    \item \textbf{Spatial Heterogeneity} \\
+    Using the focal standard deviation (3×3, 5×5, 7×7)\\
+\end{enumerate}
+\end{frame}
+
+%-----------------------------------------------------------
+\section{Material and Methods}
+
+\begin{frame}{Material and Methods}
+\begin{columns}
+    \begin{column}{0.8\textwidth}
+        \centering
+        \textbf{Data Collection}
+        \begin{itemize}
+            \item Sentinel-2 L2A — Copernicus Browser
+            \item 8 cloud-free images (2018–2025)
+            \item Bands: B02, B03, B04, B08 (10m resolution)
+        \end{itemize}
+
+        \bigskip
+        \textbf{R Libraries:} 
+        \begin{itemize}
+            \item \texttt{library(terra)} 
+            \item \texttt{library(viridis)} 
+            \item \texttt{library(fields)} 
+        \end{itemize}
+        
+        \bigskip
+        \textbf{Fire Perimeter:}
+        \begin{itemize}
+            \item Downloaded from the MTBS database
+            \item All analyses were performed within the fire perimeter
+        \end{itemize}
+    \end{column}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Custom Functions for Data Processing}
+\textbf Functions were created to simply the workflow:
+
+\bigskip
+\textbf{1. Band Extraction:}
+
+\lstset{
+    language = R,
+    basicstyle = \scriptsize\ttfamily,
+    keywordstyle = \color{blue},
+    commentstyle = \color{gray},
+    stringstyle = \color{red},
+    showstringspaces = false,
+    breaklines = true
+}
+
+\begin{lstlisting}
+s2_bands <- function(folder_name) {
+  all_files <- list.files(folder_name, pattern = "\\.jp2$", 
+                         recursive = TRUE, full.names = TRUE)
+  band_files <- all_files[grep("B0[2348]_10m\\.jp2$", all_files)]
+  rast(sort(band_files))
+}
+\end{lstlisting}
+
+\bigskip
+\textbf{2. Merge \& Crop:}
+
+\begin{lstlisting}
+merge_and_crop <- function(tile_north, tile_south, bbox) {
+  mosaic(crop(tile_north, bbox), crop(tile_south, bbox), 
+         fun = "mean")
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{NDVI Calculation}
+\textbf{Normalized Difference Vegetation Index:}
+
+\begin{equation}
+\text{NDVI} = \frac{\text{NIR} - \text{Red}}{\text{NIR} + \text{Red}}
+\end{equation}
+
+\bigskip
+For the calculation of the NDVI a function was used:
+
+\begin{lstlisting}
+calc_ndvi <- function(img) { 
+  (img[[4]] - img[[3]]) / (img[[4]] + img[[3]]) 
+}
+\end{lstlisting}
+
+\bigskip
+where:
+\begin{itemize}
+    \item \texttt{img[[4]]} = NIR = Band 8 (842 nm)
+    \item \texttt{img[[3]]} = Red = Band 4 (665 nm)
+\end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------
+\section{Fire Impact Assessment}
+
+\begin{frame}{Burn Severity Assessment — dNDVI}
+The Burn severity was assessed through the calculation of the dNDVI (difference NDVI), defined as 
+
+\begin{equation}
+\text{dNDVI} = \text{NDVI}_{\text{Nov 6, 2018}} - \text{NDVI}_{\text{Dec 6, 2018}}
+\end{equation}
+
+\begin{itemize}
+    \item Positive values = vegetation loss
+    \item Negative values = vegetation increase
+\end{itemize}
+
+\bigskip
+\textbf{Results:}
+\begin{block}{Mean dNDVI = 0.143}
+\end{block}
+
+\bigskip
+\textbf{Color Palette used for the plot:}
+\begin{itemize}
+    \item \textcolor{red}{Red} = Severe burns (dNDVI $>$ 0.35)
+    \item \textcolor{yellow!80!black}{Yellow} = Moderate (0.15–0.35)
+    \item \textcolor{blue}{Blue} = Unaffected ($<$ 0.15)
+    \item Limited Range: [-0.5, 0.5] to avoid palette compression
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Fire Impact — Visual Comparison}
+\centering
+The extent of vegetation loss becomes evident once the Nov.2018 NDVI and Dec.2018 are plotted together with the dNDVI:
+
+\bigskip
+\includegraphics[width=\textwidth]{Images/Camp_fire_impact.png}
+\captionof{figure}{\footnotesize Pre-fire NDVI (Nov 2018), Post-fire NDVI (Dec 2018), and dNDVI (fire impact)}
+\end{frame}
+
+%-----------------------------------------------------------
+\section{Recovery Trajectory}
+
+\begin{frame}{NDVI Recovery Timeline}
+\centering
+\textbf The analysis of the investigated July NDVIs  shows clear trajectory with three phases:
+
+\bigskip
+\begin{table}
+\scriptsize
+\begin{tabular}{lcccl}
+\toprule
+\textbf{Date} & \textbf{NDVI} & \textbf{$\Delta$ Baseline} & \textbf{Rate (yr$^{-1}$)} & \textbf{Phase} \\
+\midrule
+Jul 2018 & 0.394 & --- & --- & Pre-fire baseline \\
+Nov 2018 & 0.352 & -10.7\% & --- & Natural decline \\
+\textbf{Dec 2018} & \textbf{0.208} & \textbf{-47.2\%} & \textbf{---} & \textbf{Max. Fire impact} \\
+Jul 2019 & 0.258 & -34.5\% & +0.075 & First growing season \\
+Jul 2020 & 0.302 & -23.4\% & +0.044 & Early recovery \\
+Jul 2022 & 0.312 & -20.8\% & +0.005 & Mid-term recovery \\
+Jul 2024 & 0.344 & -12.7\% & +0.016 & Late recovery \\
+\textbf{Jul 2025} & \textbf{0.342} & \textbf-13.2\% & \textbf-0.002 & \textbf Current condition \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\bigskip
+\textbf{Key Findings:}
+\begin{itemize}
+    \item The Camp Fire caused a \textbf{47.2\%} NDVI loss respect to July 2018
+    \item\textbf{64\%} of NDVI was restored, but still 13\% below baseline
+    \item Rate: +0.075/yr (July 2019) $\rightarrow$ -0.002/yr  (July 2025)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Recovery Trajectory — Graphical View}
+\centering
+\includegraphics[width = 0.8\textwidth]{Images/Recovery_trajectory_line.png}
+\captionof{figure}{\footnotesize Mean NDVI timeline showing sharp post-fire decline and progressive recovery}
+\end{frame}
+
+\begin{frame}{Temporal NDVI Maps (2018–2025)}
+\centering
+Progressive NDVI recovery visible across the years.
+\includegraphics[width = 0.8\textwidth]{Images/NDVIs_Temporal_Series.png}
+\captionof{figure}{\footnotesize NDVI maps at peak growing season (July) from 2018 to 2025}
+\end{frame}
+
+%-----------------------------------------------------------
+\section{Severity × Recovery Analysis}
+
+\begin{frame}{Classification Using dNDVI and Recovery}
+\centering
+Classification performed using quantile-based thresholds:
+
+\bigskip
+\begin{columns}
+\begin{column}{0.48\textwidth}
+\textbf{Severity (dNDVI):}
+\begin{itemize}
+    \item Unburned ($<$ 0)
+    \item Low (0–0.15)
+    \item Moderate (0.15–0.35)
+    \item High ($>$ 0.35)
+\end{itemize}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\textbf{Recovery ($\Delta$NDVI 2019–2025):}
+\begin{itemize}
+    \item No/Negative ($<$ 0)
+    \item Low (0–0.1)
+    \item Moderate (0.1–0.25)
+    \item High ($<$ 0.25)
+\end{itemize}
+\end{column}
+\end{columns}
+
+\bigskip
+\begin{block}{Spearman Correlation}
+$\rho = 0.669$, $p < 0.001$ \\
+\textbf{Strong positive relationship:} Higher severity $\rightarrow$ Higher recovery
+\end{block}
+\end{frame}
+
+\begin{frame}{Severity × Recovery — Visual Analysis}
+\centering
+The positive correlation was also plotted to show it visually.
+
+\includegraphics[width=0.95\textwidth]{Images/Severity_x_Recovery.png}
+\captionof{figure}{\scriptsize Left: Recovery distribution by severity class. Right: Spatial recovery pattern.}
+\end{frame}
+
+%-----------------------------------------------------------
+\section{Spatial Variability Analysis}
+
+\begin{frame}[fragile]{Focal Standard Deviation Analysis}
+
+Calculated on total NDVI recovery respect to the same season (Jul 2019 – Jul 2025)
+\begin{itemize}
+    \item Three window sizes: 3×3, 5×5, 7×7 pixels
+    \item Spatial scales: 30m, 50m, 70m
+    \item Focal SD Color scale: 99th percentile (0.014) to optimize contrast
+\end{itemize}
+
+\bigskip
+\textbf{Palette Choice:}
+\begin{itemize}
+    \item Viridis: used to plot the Total recovery map
+    \item Inverted cividis: used for the focal SD panels. 
+    
+    \textcolor{yellow!80!black}{Yellow} (low SD) $\rightarrow$ \textcolor{blue!80!black}{Blue} (high SD)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Visual Comparison — Fine vs. Coarse Scale}
+\centering
+\includegraphics[width=0.7\textwidth]{Images/SD_Recovery_Variability.png}
+\captionof{figure}{\scriptsize Focal SD at three spatial scales. High SD (blue) at edges and complex terrain.}
+\end{frame}
+
+%-----------------------------------------------------------
+\section{Results and Discussion}
+
+\begin{frame}{Results and Discussion — Key Findings}
+\begin{itemize}
+    \item After 6.5 years, mean NDVI remains \textbf{13\% below pre-fire baseline}, reflecting slow canopy maturation (decades required) and ongoing \textbf{vegetation-type transitions};
+    
+    \item The presence of a strong positive correlation ($\rho = 0.669$) between burn severity and recovery is ecologically meaningful. 
+
+    \item High recovery $\neq$ "forest recovery". The initial fast recovery mainly represents shrubland/oak woodland establishment, and only later does the forest recovery develop and become predominant.
+    
+    \item Spatial analyses confirm that recovery shows heterogeneity.
+\end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------
+\section{Conclusions}
+
+\begin{frame}{Conclusions}
+\begin{itemize}
+    \item Camp Fire caused \textbf{severe NDVI decline} (mean dNDVI = 0.143, representing 47\% vegetation loss);
+    
+    \item By July 2025, \textbf{~64\% of lost productivity restored}, but mean NDVI remains 13\% below pre-fire levels;
+    
+    \item \textbf{Strong positive correlation} between burn severity and recovery was recorded ($\rho = 0.669$, $p < 0.001$);
+    
+    \item Recovery is \textbf{spatially heterogeneous}, particularly at finer scales (3×3);
+    
+    \item Recovery rate slowed from the equivalent of +0.075/yr in the first 8 months  to -0.002/yr in the period July 2024-2025, suggesting the start of a slower development;
+    
+    \item \textbf{Sentinel-2 imagery} proves effective for monitoring post-fire vegetation dynamics.
+\end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------
+\section{References}
+
+\begin{frame}{References}
+\begin{itemize}
+    \item \textbf{BLM Camp Fire Reforestation Plan} (2021): Climate-informed restoration strategies for Butte County, CA. \\
+    \url{https://www.blm.gov/sites/default/files/docs/2021-09/BLM_CampPlan.pdf}
+    
+    \item \textbf{Monitoring Trends in Burn Severity (MTBS)}: \\
+    \url{https://www.mtbs.gov/}
+    
+    \item \textbf{Copernicus Browser (Sentinel-2)}: \\
+    \url{https://browser.dataspace.copernicus.eu/}
+\end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------
+\begin{frame}
+\centering
+\huge {Thank you for your attention!}
+
+
+\bigskip
+\vfill
+\footnotesize 
+GitHub: \url{https://github.com/Serena Casagrande}
+
+\end{frame}
+
+\end{document}
