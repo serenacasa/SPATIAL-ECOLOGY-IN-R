@@ -3,16 +3,17 @@
 > ##### Matriculation n. 0001138070
 
 # Camp Fire Reforestation Analysis — Paradise, California (2018–2025)
-
-------------------------------------------------------------------------
+---
 
 ## Introduction
-
 The remote sensing project "Camp Fire Reforestation Analysis" employed **Sentinel-2** multitemporal imagery to analyze **vegetation loss and recovery** following the **Camp Fire** (November 8, 2018) in Paradise (Butte county), described as the deadliest and most destructive wildfire in California history.
 
-![*Camp Fire 2018 - Credit: NASA*](Images/Camp_Fire_2018.jpg){width="312"}
+<p align="center">
+  <img src="Images/Camp_Fire_2018.jpg" width="40%">
+</p>
+<p align="center"><em>Camp Fire 2018 – Credit: NASA</em></p>
 
-------------------------------------------------------------------------
+---
 
 ### Study Area
 
@@ -20,7 +21,7 @@ From November 8, 2018, over 17 days, the Camp Fire burned more than **153,000 ac
 
 Following the fire, starting in spring 2020 several projects of reforestation started in certain regions of the area affected by the fire. An example of such project is the one managed by The Bureau of Land Management (BLM) which, in sync with the American Forests, designed and carried out the reforestation project in three main parcels.
 
-------------------------------------------------------------------------
+---
 
 ### Aim of the Study
 
@@ -33,9 +34,9 @@ The **objectives of the study** were:
 3.  Assess the relationship between burn severity registered and vegetation regrowth in the following years
 4.  Investigate the spatial heterogeneity in recovery patterns (2019-2025)
 
-![*RGB plotting and Fire perimeter (red)*](images/True_Color_Composite.png)
+![*RGB plotting and Fire perimeter (red)*](Images/True_Color_Composite.png)
 
-------------------------------------------------------------------------
+---
 
 ## Data and Methods
 
@@ -124,7 +125,7 @@ The Burn severity was assessed through the calculation of the **dNDVI** (differe
 
 **Mean dNDVI: 0.143**.
 
-![*Camp Fire Impact (Nov-Dec 2018)*](Images/Camp_fire_impact.png){width="681"}
+<img src="Images/Camp_fire_impact.png" width="70%">
 
 The Viridis palette was used to plot the pre- and post-fire NDVIs.
 
@@ -157,7 +158,7 @@ The Fire caused a 47.2% (0.394 → 0.208) NDVI loss compared to the pre-fire bas
 
 During the next 1.5 years, vegetation experienced the fastest NDVI increase of the entire study period, with recovery rates equivalent to \~0.075/yr initially and \~0.044/yr in the following year. This rapid recovery mainly reflects shrubland regrowth rather than mature forest recovery.
 
-![*Recovery Timeline*](Images/Recovery_trajectory_line.png){width="586"}
+<img src="Images/Recovery_trajectory_line.png" width="70%">
 
 By July 2025, 64% of lost productivity was restored (+0.134 NDVI from the maximum fire impact). The remaining 13% deficit likely reflects an ongoing vegetation-type transitions after the initial fast regrowth. This transition is also, most likely the cause of the plateau-like effect of NDVI between July 2024 and July 2025. Other causes may be associated with the occurrence of adverse climatic conditions or the presence of stress factors for the recovering vegetation.
 
@@ -260,3 +261,4 @@ It is important to notice that High recovery ≠ "forest recovery". The register
 -   **BLM Camp Fire Reforestation Plan** (2021): Climate-informed restoration strategies for Butte County, CA. [Link](https://www.blm.gov/sites/default/files/docs/2021-09/BLM_CampPlan.pdf)
 -   **Monitoring Trends in Burn Severity (MTBS)**: <https://www.mtbs.gov/>
 -   **Copernicus Browser (Sentinel-2)**: <https://browser.dataspace.copernicus.eu/>
+
