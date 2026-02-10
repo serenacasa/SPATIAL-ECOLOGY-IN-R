@@ -34,7 +34,10 @@ The **objectives of the study** were:
 3.  Assess the relationship between burn severity registered and vegetation regrowth in the following years
 4.  Investigate the spatial heterogeneity in recovery patterns (2019-2025)
 
-![*RGB plotting and Fire perimeter (red)*](Images/True_Color_Composite.png)
+<p align="center">
+  <img src="Images/True_Color_Composite.png" width="90%">
+</p>
+<p align="left"><em>RGB plotting and Fire perimeter (red)</em></p>
 
 ---
 
@@ -71,7 +74,7 @@ merge_and_crop <- function(tile_north, tile_south, bbox) {
 }
 ```
 
-------------------------------------------------------------------------
+---
 
 ### R Packages used
 
@@ -81,7 +84,7 @@ library(viridis)    # Color-blind friendly color palettes
 library(fields)     # Spatial statistics and custom legend creation
 ```
 
-------------------------------------------------------------------------
+---
 
 ### Fire Perimeter
 
@@ -89,8 +92,7 @@ The fire perimeter shapefile was downloaded from the [MTBS](https://www.mtbs.gov
 
 All analyses were conducted within the **burn perimeter** to focus the study specifically on the affected area.
 
-------------------------------------------------------------------------
-
+---
 ### NDVI Calculation
 
 The Normalized Difference Vegetation Index was computed for all eight dates applying the created formula to simplify the process:
@@ -115,17 +117,21 @@ ndvi.july.2024 <- calc_ndvi(july.24.10m_fire)
 ndvi.july.2025 <- calc_ndvi(july.25.10m_fire)
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Results
 
 ### Fire Impact Assessment
 
-The Burn severity was assessed through the calculation of the **dNDVI** (difference NDVI), determined as pre-fire NDVI (Nov 6, 2018) minus post-fire NDVI (Dec 6, 2018) NDVI. In this way, positive values indicated vegetation loss, while negative values indicate vegetation increase.
+The Burn severity was assessed through the calculation of the **dNDVI** (difference NDVI), determined as pre-fire NDVI (Nov 6, 2018) minus post-fire NDVI (Dec 6, 2018) NDVI. In this way, positive values indicate vegetation loss, while negative values indicate vegetation increase.
 
 **Mean dNDVI: 0.143**.
 
-<img src="Images/Camp_fire_impact.png" width="70%">
+
+<p align="center">
+  <img src="Images/Camp_fire_impact.png" width="90%">
+</p>
+<p align="left"><em>Camp Fire NDVI loss</em></p>
 
 The Viridis palette was used to plot the pre- and post-fire NDVIs.
 
@@ -133,7 +139,7 @@ To visualize dNDVI, a divergent **dark red–light yellow–blue** color palette
 
 To enhance contrast where most values occur, the palette range was limited to **[-0.5, 0.5]**, which contains the majority of observed dNDVI values. This approach avoids the compression of palette caused by extreme values.
 
-------------------------------------------------------------------------
+---
 
 ### Recovery Rates and Timeline
 
@@ -158,19 +164,28 @@ The Fire caused a 47.2% (0.394 → 0.208) NDVI loss compared to the pre-fire bas
 
 During the next 1.5 years, vegetation experienced the fastest NDVI increase of the entire study period, with recovery rates equivalent to \~0.075/yr initially and \~0.044/yr in the following year. This rapid recovery mainly reflects shrubland regrowth rather than mature forest recovery.
 
-<img src="Images/Recovery_trajectory_line.png" width="70%">
+<p align="center">
+  <img src="Images/Recovery_trajectory_line.png" width="70%">
+</p>
+<p align="left"><em>NDVI Recovery trajectory</em></p>
+
+
 
 By July 2025, 64% of lost productivity was restored (+0.134 NDVI from the maximum fire impact). The remaining 13% deficit likely reflects an ongoing vegetation-type transitions after the initial fast regrowth. This transition is also, most likely the cause of the plateau-like effect of NDVI between July 2024 and July 2025. Other causes may be associated with the occurrence of adverse climatic conditions or the presence of stress factors for the recovering vegetation.
 
-------------------------------------------------------------------------
+---
 
 ### Temporal NDVI Maps
 
 Spatial NDVI maps for each July date (same peak season) illustrate progressive greening of the burn area over the years. Recovery appears heterogeneous, possibly linked to the land topography and altitude, determining differences in the recovery rates in valley bottoms compared to ridgetops and south-facing slopes.
 
-![*Temporal NDVI Maps*](Images/NDVIs_Temporal_Series.png)
+<p align="center">
+  <img src="Images/NDVIs_Temporal_Series.png" width="90%">
+</p>
+<p align="left"><em>Temporal NDVI Maps</em></p>
 
-------------------------------------------------------------------------
+
+---
 
 ### Burn Severity × Recovery Analysis
 
@@ -210,9 +225,12 @@ The correlation results show a strong positive relationship between burn severit
 
 This strong positive relationship can be visually appreciated in the barplot representation, where burn severity and recovery categories were plotted together. It is possible to see how the percentage of moderate-high recovery categories increases with the increase of the burn severity level, the opposite is shown by the "no-recovery" column.
 
-![*Severity x Recovery Relationship*](Images/Severity_x_Recovery.png){width="626"}
+<p align="center">
+  <img src="Images/Severity_x_Recovery.png" width="90%">
+</p>
+<p align="left"><em>Severity x Recovery Relationship</em></p>
 
-------------------------------------------------------------------------
+---
 
 ### Spatial Variability
 
@@ -222,9 +240,12 @@ Total recovery was plotted using the viridis palette, while focal variability ma
 
 The 3×3 window highlights finer-scale variability but also introduces higher local noise, while 5×5 and 7×7 focal windows focus on broader recovery patterns. The similarity between the latter indicates that recovery variability mainly occurs at spatial scales larger than 50-70 m, so increasing the focal window mainly produces additional smoothing rather than new spatial information.
 
-![*Spatial Variability*](Images/SD_Recovery_Variability.png)
+<p align="center">
+  <img src="Images/SD_Recovery_Variability.png" width="90%">
+</p>
+<p align="left"><em>Spatial Variability</em></p>
 
-------------------------------------------------------------------------
+---
 
 ## Discussion
 
@@ -244,7 +265,7 @@ The positive correlation (ρ = 0.669) between burn severity and recovery is ecol
 
 It is important to notice that High recovery ≠ "forest recovery". The registered initial fast recovery mainly represents **shrubland/oak woodland establishment**, and only later the forest recovery will develop and become predominant.
 
-------------------------------------------------------------------------
+---
 
 ## Conclusions
 
@@ -254,11 +275,10 @@ It is important to notice that High recovery ≠ "forest recovery". The register
 -   Recovery is **spatially heterogeneous**, particularly visible at finer spatial scales (3×3), reflecting differences in burn severity and local environmental conditions.
 -   Overall, Sentinel-2 imagery provides an effective tool for monitoring post-fire vegetation dynamics over time.
 
-------------------------------------------------------------------------
+---
 
 ## References
 
 -   **BLM Camp Fire Reforestation Plan** (2021): Climate-informed restoration strategies for Butte County, CA. [Link](https://www.blm.gov/sites/default/files/docs/2021-09/BLM_CampPlan.pdf)
 -   **Monitoring Trends in Burn Severity (MTBS)**: <https://www.mtbs.gov/>
 -   **Copernicus Browser (Sentinel-2)**: <https://browser.dataspace.copernicus.eu/>
-
