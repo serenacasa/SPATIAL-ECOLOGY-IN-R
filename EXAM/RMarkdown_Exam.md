@@ -37,7 +37,7 @@ The **objectives of the study** were:
 <p align="center">
   <img src="Images/True_Color_Composite.png" width="90%">
 </p>
-<p align="left"><em>RGB plotting and Fire perimeter (red)</em></p>
+<p align="center"><em>RGB plotting and Fire perimeter (red)</em></p>
 
 ---
 
@@ -131,7 +131,7 @@ The Burn severity was assessed through the calculation of the **dNDVI** (differe
 <p align="center">
   <img src="Images/Camp_fire_impact.png" width="90%">
 </p>
-<p align="left"><em>Camp Fire NDVI loss</em></p>
+<p align="center"><em>Camp Fire NDVI loss</em></p>
 
 The Viridis palette was used to plot the pre- and post-fire NDVIs.
 
@@ -167,7 +167,7 @@ During the next 1.5 years, vegetation experienced the fastest NDVI increase of t
 <p align="center">
   <img src="Images/Recovery_trajectory_line.png" width="70%">
 </p>
-<p align="left"><em>NDVI Recovery trajectory</em></p>
+<p align="center"><em>NDVI Recovery trajectory</em></p>
 
 
 
@@ -282,3 +282,4 @@ It is important to notice that High recovery ≠ "forest recovery". The register
 -   **BLM Camp Fire Reforestation Plan** (2021): Climate-informed restoration strategies for Butte County, CA. [Link](https://www.blm.gov/sites/default/files/docs/2021-09/BLM_CampPlan.pdf)
 -   **Monitoring Trends in Burn Severity (MTBS)**: <https://www.mtbs.gov/>
 -   **Copernicus Browser (Sentinel-2)**: <https://browser.dataspace.copernicus.eu/>
+
