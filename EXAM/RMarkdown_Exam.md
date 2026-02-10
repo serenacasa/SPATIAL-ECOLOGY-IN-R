@@ -1,8 +1,9 @@
 > #### Serena Casagrande
 >
 > ##### Matriculation n. 0001138070
+> 
+# <h1 align="center">Camp Fire Reforestation Analysis — Paradise, CA (2018–2025)</h1>
 
-# Camp Fire Reforestation Analysis — Paradise, California (2018–2025)
 ---
 
 ## Introduction
@@ -127,7 +128,6 @@ The Burn severity was assessed through the calculation of the **dNDVI** (differe
 
 **Mean dNDVI: 0.143**.
 
-
 <p align="center">
   <img src="Images/Camp_fire_impact.png" width="90%">
 </p>
@@ -156,7 +156,7 @@ The investigation of mean NDVI values across the entire timeline shows a clear r
 | Jul 2024 | 0.344 | -12.7% | +0.016/yr | Late recovery |
 | **Jul 2025** | **0.342** | **-13.2%** | **-0.002/yr** | **Current condition** |
 
-: *NDVI values Timeline*
+*NDVI values Timeline*
 
 \*Recovery rate = ΔNDVI per year between consecutive measurements
 
@@ -182,7 +182,7 @@ Spatial NDVI maps for each July date (same peak season) illustrate progressive g
 <p align="center">
   <img src="Images/NDVIs_Temporal_Series.png" width="90%">
 </p>
-<p align="left"><em>Temporal NDVI Maps</em></p>
+<p align="center"><em>Temporal NDVI Maps</em></p>
 
 
 ---
@@ -226,9 +226,9 @@ The correlation results show a strong positive relationship between burn severit
 This strong positive relationship can be visually appreciated in the barplot representation, where burn severity and recovery categories were plotted together. It is possible to see how the percentage of moderate-high recovery categories increases with the increase of the burn severity level, the opposite is shown by the "no-recovery" column.
 
 <p align="center">
-  <img src="Images/Severity_x_Recovery.png" width="90%">
+  <img src="Images/Severity_x_Recovery.png" width="75%">
 </p>
-<p align="left"><em>Severity x Recovery Relationship</em></p>
+<p align="center"><em>Severity x Recovery Relationship</em></p>
 
 ---
 
@@ -241,9 +241,9 @@ Total recovery was plotted using the viridis palette, while focal variability ma
 The 3×3 window highlights finer-scale variability but also introduces higher local noise, while 5×5 and 7×7 focal windows focus on broader recovery patterns. The similarity between the latter indicates that recovery variability mainly occurs at spatial scales larger than 50-70 m, so increasing the focal window mainly produces additional smoothing rather than new spatial information.
 
 <p align="center">
-  <img src="Images/SD_Recovery_Variability.png" width="90%">
+  <img src="Images/SD_Recovery_Variability.png" width="80%">
 </p>
-<p align="left"><em>Spatial Variability</em></p>
+<p align="center"><em>Spatial Variability</em></p>
 
 ---
 
@@ -282,4 +282,5 @@ It is important to notice that High recovery ≠ "forest recovery". The register
 -   **BLM Camp Fire Reforestation Plan** (2021): Climate-informed restoration strategies for Butte County, CA. [Link](https://www.blm.gov/sites/default/files/docs/2021-09/BLM_CampPlan.pdf)
 -   **Monitoring Trends in Burn Severity (MTBS)**: <https://www.mtbs.gov/>
 -   **Copernicus Browser (Sentinel-2)**: <https://browser.dataspace.copernicus.eu/>
+
 
