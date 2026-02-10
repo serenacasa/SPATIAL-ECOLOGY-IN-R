@@ -160,9 +160,9 @@ The investigation of mean NDVI values across the entire timeline shows a clear r
 
 \*Recovery rate = ΔNDVI per year between consecutive measurements
 
-The Fire caused a 47.2% (0.394 → 0.208) NDVI loss compared to the pre-fire baseline (July 2018) and a net 36.5% loss compared to Nov 2018 vegetation condition.
+The Fire caused a 47.1% (0.394 → 0.208) NDVI loss compared to the pre-fire baseline (July 2018) and a net 36.3% loss compared to Nov 2018 vegetation condition.
 
-During the next 1.5 years, vegetation experienced the fastest NDVI increase of the entire study period, with recovery rates equivalent to \~0.075/yr initially and \~0.044/yr in the following year. This rapid recovery mainly reflects shrubland regrowth rather than mature forest recovery.
+During the next 1.5 years, vegetation experienced the fastest NDVI increase of the entire study period, with recovery rates equivalent to \~0.074/yr initially and \~0.044/yr in the following year. This rapid recovery mainly reflects shrubland regrowth rather than mature forest recovery.
 
 <p align="center">
   <img src="Images/Recovery_trajectory_line.png" width="70%">
@@ -282,5 +282,6 @@ It is important to notice that High recovery ≠ "forest recovery". The register
 -   **BLM Camp Fire Reforestation Plan** (2021): Climate-informed restoration strategies for Butte County, CA. [Link](https://www.blm.gov/sites/default/files/docs/2021-09/BLM_CampPlan.pdf)
 -   **Monitoring Trends in Burn Severity (MTBS)**: <https://www.mtbs.gov/>
 -   **Copernicus Browser (Sentinel-2)**: <https://browser.dataspace.copernicus.eu/>
+
 
 
