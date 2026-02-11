@@ -83,6 +83,7 @@ merge_and_crop <- function(tile_north, tile_south, bbox) {
 library(terra)      # Spatial data analysis package
 library(viridis)    # Color-blind friendly color palettes
 library(fields)     # Spatial statistics and custom legend creation
+library (imageRy)   # For satellite image processing
 ```
 
 ---
@@ -282,6 +283,7 @@ It is important to notice that High recovery ≠ "forest recovery". The register
 -   **BLM Camp Fire Reforestation Plan** (2021): Climate-informed restoration strategies for Butte County, CA. [Link](https://www.blm.gov/sites/default/files/docs/2021-09/BLM_CampPlan.pdf)
 -   **Monitoring Trends in Burn Severity (MTBS)**: <https://www.mtbs.gov/>
 -   **Copernicus Browser (Sentinel-2)**: <https://browser.dataspace.copernicus.eu/>
+
 
 
 
