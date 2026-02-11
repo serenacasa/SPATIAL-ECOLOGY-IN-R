@@ -5,6 +5,7 @@
 library(terra)      # Spatial data analysis package
 library(viridis)    # Color-blind friendly color palettes
 library(fields)     # Spatial statistics and custom legend creation
+library (imageRy)   # For satellite image processing
 
 
 #### ----- SETUP -----
@@ -408,4 +409,5 @@ sd_summary <- data.frame(Window = c("3x3 (30m)", "5x5 (50m)", "7x7 (70m)"),
                          Max_SD = c(gmax(sd3_recovery), gmax(sd5_recovery), gmax(sd7_recovery))
 )
 write.csv(sd_summary, "processed_data/Spatial_variability_Stats.csv", row.names = FALSE)
+
 
