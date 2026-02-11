@@ -171,7 +171,7 @@ During the next 1.5 years, vegetation experienced the fastest NDVI increase of t
 
 
 
-By July 2025, 64% of lost productivity was restored (+0.134 NDVI from the maximum fire impact). The remaining 13% deficit likely reflects an ongoing vegetation-type transitions after the initial fast regrowth. This transition is also, most likely the cause of the plateau-like effect of NDVI between July 2024 and July 2025. Other causes may be associated with the occurrence of adverse climatic conditions or the presence of stress factors for the recovering vegetation.
+By July 2025, 64% of lost NDVI was restored (+0.134 NDVI from the maximum fire impact). The remaining 13% deficit likely reflects an ongoing vegetation-type transitions after the initial fast regrowth. This transition is also, most likely the cause of the plateau-like effect of NDVI between July 2024 and July 2025. Other causes may be associated with the occurrence of adverse climatic conditions or the presence of stress factors for the recovering vegetation.
 
 ---
 
@@ -282,6 +282,7 @@ It is important to notice that High recovery ≠ "forest recovery". The register
 -   **BLM Camp Fire Reforestation Plan** (2021): Climate-informed restoration strategies for Butte County, CA. [Link](https://www.blm.gov/sites/default/files/docs/2021-09/BLM_CampPlan.pdf)
 -   **Monitoring Trends in Burn Severity (MTBS)**: <https://www.mtbs.gov/>
 -   **Copernicus Browser (Sentinel-2)**: <https://browser.dataspace.copernicus.eu/>
+
 
 
 
