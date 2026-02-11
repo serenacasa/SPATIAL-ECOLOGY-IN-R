@@ -273,7 +273,7 @@ It is important to notice that High recovery ≠ "forest recovery". The register
 -   By July 2025 (+6.5 years), **\~64% of lost productivity has been restored**, but mean NDVI remains 13% below pre-fire levels
 -   **Positive correlation** between burn severity and recovery (ρ = 0.669, p \< 0.001), driven by rapid resprouting in severely burned areas
 -   Recovery is **spatially heterogeneous**, particularly visible at finer spatial scales (3×3), reflecting differences in burn severity and local environmental conditions.
--   Overall, Sentinel-2 imagery provides an effective tool for monitoring post-fire vegetation dynamics over time.
+-   Overall, Sentinel-2 imagery and R provide effective tools for monitoring post-fire vegetation dynamics over time.
 
 ---
 
@@ -282,6 +282,7 @@ It is important to notice that High recovery ≠ "forest recovery". The register
 -   **BLM Camp Fire Reforestation Plan** (2021): Climate-informed restoration strategies for Butte County, CA. [Link](https://www.blm.gov/sites/default/files/docs/2021-09/BLM_CampPlan.pdf)
 -   **Monitoring Trends in Burn Severity (MTBS)**: <https://www.mtbs.gov/>
 -   **Copernicus Browser (Sentinel-2)**: <https://browser.dataspace.copernicus.eu/>
+
 
 
 
