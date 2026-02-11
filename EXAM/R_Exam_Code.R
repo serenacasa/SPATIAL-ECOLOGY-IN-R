@@ -132,7 +132,7 @@ ndvi_list <- list(
 mean_ndvi <- sapply(ndvi_list, function(r) {global(r, "mean", na.rm = TRUE)[[1]]})
 
 
-#### ----- 
+#### ----- STATISTICAL ANALYSIS -----
 dates <- c("Jul 2018", "Nov 2018", "Dec 2018", "Jul 2019", "Jul 2020", "Jul 2022", "Jul 2024", "Jul 2025")
 mean_ndvi_values <- round(mean_ndvi, 3)
 
@@ -408,6 +408,7 @@ sd_summary <- data.frame(Window = c("3x3 (30m)", "5x5 (50m)", "7x7 (70m)"),
                          Max_SD = c(gmax(sd3_recovery), gmax(sd5_recovery), gmax(sd7_recovery))
 )
 write.csv(sd_summary, "processed_data/Spatial_variability_Stats.csv", row.names = FALSE)
+
 
 
 
